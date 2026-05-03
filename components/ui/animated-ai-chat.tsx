@@ -451,7 +451,7 @@ export function AnimatedAIChat() {
                                 <motion.button
                                     type="button"
                                     data-command-button
-                                    onClick={(e) => {
+                                    onClick={(e: React.MouseEvent) => {
                                         e.stopPropagation();
                                         setShowCommandPalette(prev => !prev);
                                     }}
