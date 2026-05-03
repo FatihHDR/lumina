@@ -188,19 +188,9 @@ export default function Overlay({
         </div>
       </div>
       {/* Navigation*/}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        padding: '1.5rem 2rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        background: 'rgba(0, 0, 0, 0.2)',
-        pointerEvents: 'auto'
-      }}>
+      <nav 
+        className="fixed top-0 left-0 right-0 z-[100] px-4 md:px-8 py-4 flex justify-between items-center bg-black/20 pointer-events-auto"
+      >
         <div style={{
           width: '32px',
           height: '32px',
@@ -208,7 +198,8 @@ export default function Overlay({
           background: 'white',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          flexShrink: 0
         }}>
           <div style={{
             width: '16px',
@@ -218,59 +209,25 @@ export default function Overlay({
           }} />
         </div>
 
-        <div style={{
-          display: 'flex',
-          gap: '2rem',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '11px',
-          fontWeight: '500',
-          letterSpacing: '1px',
-          textTransform: 'uppercase'
-        }}>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.9 }}>
+        <div className="hidden md:flex gap-8 font-sans text-[11px] font-medium tracking-[1px] uppercase items-center">
+          <a href="#" className="text-white/90 no-underline hover:text-white transition-colors">
             Creative Journey
           </a>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.9 }}>
+          <a href="#" className="hidden md:inline-block text-white/90 no-underline hover:text-white transition-colors">
             About
           </a>
-          <a href="#" style={{ color: 'white', textDecoration: 'none', opacity: 0.9 }}>
+          <a href="#" className="hidden md:inline-block text-white/90 no-underline hover:text-white transition-colors">
             Sound
           </a>
           <button
             onClick={() => setIsModelsOpen(true)}
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-              opacity: 0.9,
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-              fontSize: 'inherit',
-              fontWeight: 'inherit',
-              letterSpacing: 'inherit',
-              textTransform: 'inherit',
-              padding: 0
-            }}
+            className="hidden md:inline-block text-white/90 hover:text-white transition-colors bg-transparent border-none cursor-pointer font-inherit text-inherit uppercase p-0"
           >
             AI Models
           </button>
           <button
             onClick={() => setIsChatOpen(true)}
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-              opacity: 0.9,
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-              fontSize: 'inherit',
-              fontWeight: 'inherit',
-              letterSpacing: 'inherit',
-              textTransform: 'inherit',
-              padding: 0
-            }}
+            className="inline-block text-white/90 hover:text-white transition-colors bg-transparent border-none cursor-pointer font-inherit text-inherit uppercase p-0"
           >
             Chat
           </button>
@@ -279,19 +236,8 @@ export default function Overlay({
         {!loadingUser && (
           user ? (
             // Authenticated user menu
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem'
-            }}>
-              <span style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '11px',
-                fontWeight: '500',
-                color: 'white',
-                letterSpacing: '1px',
-                textTransform: 'uppercase'
-              }}>
+            <div className="flex items-center gap-3">
+              <span className="font-sans text-[11px] font-medium text-white tracking-[1px] uppercase hidden md:inline-block">
                 {user.name}
               </span>
               <button
@@ -300,30 +246,7 @@ export default function Overlay({
                   setUser(null);
                   window.location.reload();
                 }}
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  color: 'white',
-                  letterSpacing: '1px',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  padding: '0.5rem 1rem',
-                  background: 'rgba(239, 68, 68, 0.15)',
-                  border: '1px solid rgba(239, 68, 68, 0.3)',
-                  borderRadius: '0.375rem',
-                  transition: 'all 0.3s ease',
-                  backdropFilter: 'blur(8px)',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(239, 68, 68, 0.25)'
-                  e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)'
-                  e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)'
-                }}
+                className="font-sans text-[11px] font-medium text-white tracking-[1px] uppercase no-underline px-4 py-2 bg-red-500/15 border border-red-500/30 rounded-md transition-all duration-300 backdrop-blur-md cursor-pointer hover:bg-red-500/25 hover:border-red-500/50"
               >
                 Sign Out
               </button>
@@ -332,30 +255,7 @@ export default function Overlay({
             // Not authenticated - show Sign In link
             <a
               href="/signin"
-              style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '11px',
-                fontWeight: '500',
-                color: 'white',
-                letterSpacing: '1px',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                padding: '0.5rem 1rem',
-                background: 'rgba(139, 92, 246, 0.15)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '0.375rem',
-                transition: 'all 0.3s ease',
-                backdropFilter: 'blur(8px)',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.25)'
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.5)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.15)'
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)'
-              }}
+              className="font-sans text-[11px] font-medium text-white tracking-[1px] uppercase no-underline px-4 py-2 bg-violet-500/15 border border-violet-500/30 rounded-md transition-all duration-300 backdrop-blur-md cursor-pointer hover:bg-violet-500/25 hover:border-violet-500/50 flex-shrink-0"
             >
               Sign In
             </a>
@@ -391,16 +291,19 @@ export default function Overlay({
       </div>
 
       {/* Left side text */}
-      <div style={{
-        position: 'fixed',
-        left: '2rem',
-        top: '40%',
-        zIndex: 50,
-        transform: `translateX(${-scrollProgress * 200}px)`,
-        opacity: Math.max(0, 1 - scrollProgress * 2),
-        transition: 'transform 0.1s ease-out',
-        pointerEvents: 'none'
-      }}>
+      <div 
+        className="hidden md:block"
+        style={{
+          position: 'fixed',
+          left: '2rem',
+          top: '40%',
+          zIndex: 50,
+          transform: `translateX(${-scrollProgress * 200}px)`,
+          opacity: Math.max(0, 1 - scrollProgress * 2),
+          transition: 'transform 0.1s ease-out',
+          pointerEvents: 'none'
+        }}
+      >
         <div style={{
           fontFamily: 'Arial, sans-serif',
           fontSize: '11px',
@@ -419,16 +322,19 @@ export default function Overlay({
       </div>
 
       {/* Right side text */}
-      <div style={{
-        position: 'fixed',
-        right: '2rem',
-        top: '40%',
-        zIndex: 50,
-        transform: `translateX(${scrollProgress * 200}px)`,
-        opacity: Math.max(0, 1 - scrollProgress * 2),
-        transition: 'transform 0.1s ease-out',
-        pointerEvents: 'none'
-      }}>
+      <div 
+        className="hidden md:block"
+        style={{
+          position: 'fixed',
+          right: '2rem',
+          top: '40%',
+          zIndex: 50,
+          transform: `translateX(${scrollProgress * 200}px)`,
+          opacity: Math.max(0, 1 - scrollProgress * 2),
+          transition: 'transform 0.1s ease-out',
+          pointerEvents: 'none'
+        }}
+      >
         <div style={{
           fontFamily: 'Arial, sans-serif',
           fontSize: '11px',
