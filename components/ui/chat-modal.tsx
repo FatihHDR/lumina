@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { XIcon } from "lucide-react"
 import { AnimatedAIChat } from "./animated-ai-chat"
@@ -50,7 +50,7 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-[301] flex items-center justify-center p-4"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           >
             <div className="relative w-full h-full max-w-4xl max-h-[90vh] bg-black rounded-2xl shadow-2xl overflow-hidden">
               {/* Close Button */}
