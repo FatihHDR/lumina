@@ -386,7 +386,7 @@ export default function Overlay({
           textShadow: '0 0 50px rgba(255, 255, 255, 0.3)',
           filter: 'contrast(1.2)'
         }}>
-          UMBRA
+          LUMINA
         </div>
       </div>
 

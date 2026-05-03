@@ -91,7 +91,7 @@ export default function SignInPageRoute() {
                     loading ? (
                         <span className="font-light text-foreground tracking-tighter">Signing in...</span>
                     ) : (
-                        <span className="font-light text-foreground tracking-tighter">Welcome to UMBRA</span>
+                        <span className="font-light text-foreground tracking-tighter">Welcome to LUMINA</span>
                     )
                 }
                 description="Access your account and continue your creative journey"

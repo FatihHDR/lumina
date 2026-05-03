@@ -101,7 +101,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                     {/* Sign In Component */}
                     <div className="w-full h-full">
                         <SignInPage
-                            title={<span className="font-light text-foreground tracking-tighter">Welcome to UMBRA</span>}
+                            title={<span className="font-light text-foreground tracking-tighter">Welcome to LUMINA</span>}
                             description="Access your account and continue your creative journey"
                             heroImageSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160&q=80"
                             testimonials={sampleTestimonials}

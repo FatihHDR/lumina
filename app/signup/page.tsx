@@ -93,7 +93,7 @@ export default function SignUpPage() {
                     loading ? (
                         <span className="font-light text-foreground tracking-tighter">Creating account...</span>
                     ) : (
-                        <span className="font-light text-foreground tracking-tighter">Join UMBRA</span>
+                        <span className="font-light text-foreground tracking-tighter">Join LUMINA</span>
                     )
                 }
                 description="Create your account and start your creative journey today"
